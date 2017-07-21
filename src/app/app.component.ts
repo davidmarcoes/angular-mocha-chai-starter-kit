@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  private dependency = {
+    sayHello: (name: string) => {
+      return `Hello, my name is ${name}!`;
+    }
+  };
+
+  methodUnderTest(name: string) {
+    return this.dependency.sayHello(name);
+  }
 }
